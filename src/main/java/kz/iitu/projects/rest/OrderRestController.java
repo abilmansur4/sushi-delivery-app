@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/api/orders")
 public class OrderRestController {
 
     @Autowired

@@ -34,7 +34,7 @@ public class ApplicationSwaggerConfig {
                 "SushiDelivery backend terms of service",
                 new Contact(
                         "Yunis Abilmansur",
-                        "https://github.com/codacademy/zoo-medcenter-rest",
+                        "https://github.com/abilmansur4",
                         "abilmansur.yunis@gmail.com"),
                 "",
                 "");

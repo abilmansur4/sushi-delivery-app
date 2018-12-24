@@ -7,7 +7,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -21,7 +20,7 @@ public class OrderRestController {
     @Autowired
     private OrderService orderService;
 
-    @PreAuthorize( "hasRole(@roles.ADMIN)" )
+//    @PreAuthorize( "hasRole(@roles.ADMIN)" )
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Order> getOrder(@PathVariable("id") Integer orderId){
 
@@ -38,7 +37,7 @@ public class OrderRestController {
         return new ResponseEntity<>(order, HttpStatus.OK);
     }
 
-    @PreAuthorize( "hasRole(@roles.ADMIN)" )
+//    @PreAuthorize( "hasRole(@roles.ADMIN)" )
     @RequestMapping(value = "", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Order> saveOrder(@RequestBody @Valid Order order, UriComponentsBuilder ucBuilder){
         HttpHeaders headers = new HttpHeaders();
@@ -52,7 +51,7 @@ public class OrderRestController {
         return new ResponseEntity<Order>(order, headers, HttpStatus.CREATED);
     }
 
-    @PreAuthorize( "hasRole(@roles.ADMIN)" )
+//    @PreAuthorize( "hasRole(@roles.ADMIN)" )
     @RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Order> updateOrder(@RequestBody @Valid Order order, UriComponentsBuilder builder){
         HttpHeaders headers = new HttpHeaders();
@@ -65,7 +64,7 @@ public class OrderRestController {
         return new ResponseEntity<>(order, headers, HttpStatus.OK);
     }
 
-    @PreAuthorize( "hasRole(@roles.ADMIN)" )
+//    @PreAuthorize( "hasRole(@roles.ADMIN)" )
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Order> deleteOrder(@PathVariable("id") Integer id){
         Order order = this.orderService.getById(id);
@@ -79,7 +78,7 @@ public class OrderRestController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PreAuthorize( "hasRole(@roles.ADMIN)" )
+//    @PreAuthorize( "hasRole(@roles.ADMIN)" )
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Collection<Order>> getOrders(){
 
